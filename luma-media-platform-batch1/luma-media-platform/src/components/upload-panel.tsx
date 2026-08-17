@@ -1,0 +1,14 @@
+'use client';
+import { ImagePlus, UploadCloud, Video } from 'lucide-react';
+import { useRef, useState } from 'react';
+
+export function UploadPanel(){
+  const ref=useRef<HTMLInputElement>(null); const [files,setFiles]=useState<File[]>([]);
+  return <div className="grid gap-6 xl:grid-cols-[1.1fr_.9fr]">
+    <section onClick={()=>ref.current?.click()} className="group grid min-h-[470px] cursor-pointer place-items-center rounded-[32px] border border-dashed border-white/14 bg-gradient-to-b from-white/[.055] to-white/[.025] p-8 text-center transition hover:border-white/25 hover:bg-white/[.06]">
+      <input ref={ref} type="file" accept="image/*,video/*" multiple hidden onChange={e=>setFiles(Array.from(e.target.files||[]))}/>
+      <div><div className="mx-auto grid h-20 w-20 place-items-center rounded-[28px] bg-white text-black shadow-2xl"><UploadCloud size={30}/></div><h2 className="mt-6 text-2xl font-semibold">Drop photos & videos here</h2><p className="mx-auto mt-2 max-w-sm text-sm leading-6 text-zinc-500">Select multiple files. Direct-to-R2 upload will be connected in the Media batch.</p><div className="mt-6 inline-flex rounded-full border border-white/10 px-5 py-2.5 text-sm">Choose files</div></div>
+    </section>
+    <section className="glass rounded-[32px] p-5 md:p-6"><div className="mb-5 text-lg font-semibold">Create post</div><div className="rounded-2xl border border-white/8 bg-black/20 p-4"><textarea placeholder="Write a caption..." className="min-h-32 w-full resize-none bg-transparent text-sm outline-none placeholder:text-zinc-600"/></div><div className="mt-4 grid gap-3 sm:grid-cols-2"><div className="rounded-2xl border border-white/8 p-4 text-sm"><div className="mb-1 text-xs uppercase tracking-wider text-zinc-600">Media</div><div>{files.length ? `${files.length} file(s) selected` : 'No files yet'}</div></div><div className="rounded-2xl border border-white/8 p-4 text-sm"><div className="mb-1 text-xs uppercase tracking-wider text-zinc-600">Privacy</div><div>Public ▾</div></div></div><div className="mt-4 rounded-2xl border border-white/8 p-4"><div className="mb-3 text-xs uppercase tracking-wider text-zinc-600">Selected</div>{files.length===0?<div className="text-sm text-zinc-600">Your uploads will appear here.</div>:<div className="space-y-2">{files.slice(0,6).map((f,i)=><div className="flex items-center gap-3 rounded-xl bg-white/5 p-3 text-sm" key={`${f.name}-${i}`}>{f.type.startsWith('video')?<Video size={18}/>:<ImagePlus size={18}/>}<span className="min-w-0 flex-1 truncate">{f.name}</span><span className="text-xs text-zinc-600">{(f.size/1024/1024).toFixed(1)} MB</span></div>)}</div>}</div><button className="mt-5 w-full rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-black disabled:opacity-40" disabled={!files.length}>Publish</button></section>
+  </div>
+}

@@ -1,0 +1,8 @@
+export const posts = [
+  { id: 1, user: 'Mina Park', handle: '@minapark', type: 'image', src: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=86', caption: 'A quiet place where light becomes part of the story.', likes: '8.4K', comments: 312, aspect: 'aspect-[4/5]' },
+  { id: 2, user: 'Alex Chen', handle: '@alexchen', type: 'video', src: 'https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1400&q=86', caption: 'Night motion study — Taipei after rain.', likes: '12.1K', comments: 506, aspect: 'aspect-video' },
+  { id: 3, user: 'Nora Lee', handle: '@noralee', type: 'image', src: 'https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=1400&q=86', caption: 'Colors found on the road.', likes: '5.9K', comments: 184, aspect: 'aspect-[4/3]' },
+  { id: 4, user: 'Sora Studio', handle: '@sorastudio', type: 'image', src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=86', caption: 'Green, soft, almost unreal.', likes: '20.2K', comments: 710, aspect: 'aspect-[3/4]' },
+  { id: 5, user: 'Ivy Wong', handle: '@ivywong', type: 'video', src: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1400&q=86', caption: 'Concrete, geometry and a little silence.', likes: '7.6K', comments: 233, aspect: 'aspect-square' },
+  { id: 6, user: 'Noah Ray', handle: '@noahray', type: 'image', src: 'https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1400&q=86', caption: 'The kind of cold you remember.', likes: '14.9K', comments: 421, aspect: 'aspect-[4/5]' }
+];
