@@ -1,5 +1,0 @@
-import { Play } from 'lucide-react';
-import { posts } from '@/lib/mock-data';
-export function ExploreGrid() {
-  return <div className="columns-2 gap-3 md:columns-3 xl:columns-4">{[...posts,...posts].map((p,i)=><div key={`${p.id}-${i}`} className="group relative mb-3 break-inside-avoid overflow-hidden rounded-2xl border border-white/7 bg-zinc-900"><img src={p.src} className="w-full transition duration-500 group-hover:scale-[1.03]" alt=""/><div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-0 transition group-hover:opacity-100"/>{p.type==='video'&&<div className="absolute right-3 top-3 grid h-8 w-8 place-items-center rounded-full bg-black/35 backdrop-blur"><Play size={14} className="fill-white"/></div>}<div className="absolute inset-x-0 bottom-0 translate-y-2 p-3 text-xs opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100"><div className="font-medium">{p.handle}</div><div className="text-zinc-300">♥ {p.likes}</div></div></div>)}</div>
-}
