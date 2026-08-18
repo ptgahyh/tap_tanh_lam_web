@@ -1,4 +1,4 @@
-import { pgEnum, pgTable, text, timestamp, uuid, integer, boolean, primaryKey, index, jsonb } from 'drizzle-orm/pg-core';
+import { pgEnum, pgTable, text, timestamp, uuid, integer, bigint, boolean, primaryKey, index, jsonb } from 'drizzle-orm/pg-core';
 
 export const mediaType = pgEnum('media_type', ['IMAGE', 'VIDEO']);
 export const mediaStatus = pgEnum('media_status', ['UPLOADING', 'PROCESSING', 'READY', 'FAILED']);
@@ -25,7 +25,7 @@ export const media = pgTable('media', {
   objectKey: text('object_key').notNull().unique(),
   originalName: text('original_name').notNull(),
   mimeType: text('mime_type').notNull(),
-  size: integer('size'),
+  size: bigint('size', { mode: 'number' }),
   width: integer('width'),
   height: integer('height'),
   durationMs: integer('duration_ms'),
